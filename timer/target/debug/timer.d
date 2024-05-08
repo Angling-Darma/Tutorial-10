@@ -1,0 +1,1 @@
+/Users/abrahamsihombing/kuliah/adpro-2/Tutorial-10/timer/target/debug/timer: /Users/abrahamsihombing/kuliah/adpro-2/Tutorial-10/timer/src/main.rs /Users/abrahamsihombing/kuliah/adpro-2/Tutorial-10/timer/src/timer.rs

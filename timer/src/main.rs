@@ -1,3 +1,4 @@
+mod timer;
 use futures::{
     future::{BoxFuture, FutureExt},
     task::{waker_ref, ArcWake},
@@ -100,11 +101,23 @@ fn main() {
         Timer::new(Duration::new(2, 0)).await;
         println!("Abrahams’s Komputer: done!");
     });
+    spawner.spawn(async {
+        println!("Abrahams’s Komputer: howdy2!");
+        // Wait for our timer future to complete after two seconds.
+        Timer::new(Duration::new(2, 0)).await;
+        println!("Abrahams’s Komputer: done2!");
+    });
+    spawner.spawn(async {
+        println!("Abrahams’s Komputer: howdy3!");
+        // Wait for our timer future to complete after two seconds.
+        Timer::new(Duration::new(2, 0)).await;
+        println!("Abrahams’s Komputer: done3!");
+    });
 
     println!("Abrahams’s Komputer: hey hey!");
     // Drop the spawner so that our executor knows it is finished and won't
     // receive more incoming tasks to run.
-    drop(spawner);
+    // drop(spawner);
 
     // Run the executor until the task queue is empty.
     // This will print "howdy!", pause, and then print "done!".
